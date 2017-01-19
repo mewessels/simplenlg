@@ -1138,11 +1138,15 @@ public class NLGFactory {
 	 * @param components
 	 *            a <code>List</code> of <code>NLGElement</code>s that form the
 	 *            components of this element.
+	 *            If <code>components</code> is <code>null</code>, return new sentence
+	 *            with default name and title.
 	 * @return a <code>DocumentElement</code> representing this sentence
 	 */
 	public DocumentElement createSentence(List<NLGElement> components) {
 		DocumentElement sentence = new DocumentElement(DocumentCategory.SENTENCE, null);
-		sentence.addComponents(components);
+		if ( components != null) {
+			sentence.addComponents(components);
+		}
 		return sentence;
 	}
 
